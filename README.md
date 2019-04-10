@@ -15,6 +15,7 @@ Hal yang harus diperhatikan dalam kodingan, untuk mempermudah pembacaan.
 - Variable: snake_case
 - diroute jangan ada return langsung passing ke controller dulu
 - pakai use jangan akses langsung pada direktorinya 
+- Buat branch tiap fitur yang dikerjakan, jangan kerjakan fitur di branch master
 ***
 ## Struktur DB
 ![alt](cdm_db.PNG)
