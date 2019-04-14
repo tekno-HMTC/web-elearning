@@ -12,7 +12,7 @@ class Pengunguman extends Model
      * @var array
      */
     protected $fillable = [
-        'komunitas_id','nama', 'konten', 'tgl_tampil', 'tgl_selesai',
+        'komunitas_id', 'nama', 'konten', 'tgl_tampil', 'tgl_selesai',
     ];
 
     /**
@@ -25,7 +25,8 @@ class Pengunguman extends Model
     /**
      * One to Many relationship
      */
-    public function komunitas(){
+    public function komunitas()
+    {
         return $this->belongsTo('App\Komunitas');
     }
 }

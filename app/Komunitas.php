@@ -21,7 +21,8 @@ class Komunitas extends Model
      * 
      */
 
-    public function pengunguman(){
+    public function pengunguman()
+    {
         return $this->hasMany('App\Pengunguman');
     }
 
@@ -31,7 +32,8 @@ class Komunitas extends Model
      * 
      */
 
-    public function modul(){
+    public function modul()
+    {
         return $this->hasMany('App\Modul');
     }
 
@@ -41,7 +43,8 @@ class Komunitas extends Model
      * 
      */
 
-    public function users(){
+    public function users()
+    {
         return $this->belongsToMany('App\User')->withTimestamps()->withPivot('status_admin');
     }
 }
