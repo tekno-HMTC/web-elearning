@@ -52,7 +52,7 @@ CRUD Pengunguman
     * Ganen  
     Bisa assign admin
 
-## SItemap
+## Sitemap
 
 - `/`
 
