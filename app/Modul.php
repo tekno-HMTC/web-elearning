@@ -40,10 +40,10 @@ class Modul extends Model
      */
     public function isUnlocked()
     {
-        $user_modul_collection = User::find(Auth::user()->id)->modul;
-        $this_modul_syarat_collection = $this->syarat;
-        foreach ($this_modul_syarat_collection as $modul_iterator) {
-            if (!$user_modul_collection->contains('md_id', $modul_iterator->syarat_modul_id))
+        $modulCollection = User::find(Auth::user()->id)->modul;
+        $modulSyaratCollection = $this->syarat;
+        foreach ($modulSyaratCollection as $modul_iterator) {
+            if (!$modulCollection->contains('md_id', $modul_iterator->syarat_modul_id))
                 return false;
         }
         return true;
