@@ -51,3 +51,41 @@ CRUD Pengunguman
 
     * Ganen  
     Bisa assign admin
+
+## Sitemap
+
+- `/`
+
+  Homepage. Berisi login dan register saja.
+
+  - `/login`
+
+    Halaman login
+
+  - `/register`
+
+    Halaman register
+
+  - `/dashboard`
+
+    Berisi list **semua** komunitas.
+
+  - `/komunitas/{kmt_id}`
+
+    Berisi list modul yang tersedia dalam komunitas tersebut.
+
+    - `/komunitas/{kmt_id}/{md_id}`
+
+      Berisi **satu** modul.
+
+  - `/admin`
+
+    Dashboard untuk admin (web dan komunitas). Berisi 
+
+    - View admin web: CRUD user dan komunitas
+
+    - View admin komunitas: list komunitas yang ditangani
+
+    - `/admin/{kmt_id}`
+
+      CRUD komunitas terkait (modul dan member komunitas).

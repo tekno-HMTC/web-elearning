@@ -40,7 +40,8 @@ class User extends Authenticatable
     /**
      * Many to Many relationship
      */
-    public function modul(){
+    public function modul()
+    {
         return $this->belongsToMany('App\Modul')->withTimestamps()->withPivot('attachment');
     }
 
@@ -50,7 +51,8 @@ class User extends Authenticatable
      * 
      */
 
-    public function komunitas(){
+    public function komunitas()
+    {
         return $this->belongsToMany('App\Komunitas')->withTimestamps()->withPivot('status_admin');
     }
 }
