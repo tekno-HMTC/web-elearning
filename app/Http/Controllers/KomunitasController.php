@@ -16,11 +16,11 @@ class KomunitasController extends Controller
             $modul_komunitas = $komunitas->modul;
         else
             $modul_komunitas = null;
-        if ($komunitas->pengunguman->count() > 0)
-            $pengunguman_komunitas = $komunitas->pengunguman;
+        if ($komunitas->pengumuman->count() > 0)
+            $pengumuman_komunitas = $komunitas->pengumuman;
         else
-            $pengunguman_komunitas = null;
-        return view('admin.index',compact(['komunitas','user_komunitas','modul_komunitas','pengunguman_komunitas']));
+            $pengumuman_komunitas = null;
+        return view('admin.index',compact(['komunitas','user_komunitas','modul_komunitas','pengumuman_komunitas']));
     }
 
     public function requestUser($kmt_id){

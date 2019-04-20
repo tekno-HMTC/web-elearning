@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pengunguman extends Model
+class Pengumuman extends Model
 {
     /**
      * The attributes that are mass assignable.

@@ -29,11 +29,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/admin/{kmt_id}', 'KomunitasController@index')->name('admin.index');
         
         Route::group(['prefix' => '/admin/{kmt_id}'], function () {
-            //CRUD Pengunguman
-            Route::post('/pengunguman/delete', 'PengungumanController@delete')->name('pengunguman.delete');
-            Route::post('/pengunguman/create', 'PengungumanController@create')->name('pengunguman.create');
-            Route::patch('/pengunguman/edit', 'PengungumanController@edit')->name('pengunguman.edit');
-            Route::get('/pengunguman/view/{id}', 'PengungumanController@view')->name('pengunguman.view');
+            //CRUD Pengumuman
+            Route::post('/pengumuman/delete', 'PengumumanController@delete')->name('pengumuman.delete');
+            Route::post('/pengumuman/create', 'PengumumanController@create')->name('pengumuman.create');
+            Route::patch('/pengumuman/edit', 'PengumumanController@edit')->name('pengumuman.edit');
+            Route::get('/pengumuman/view/{id}', 'PengumumanController@view')->name('pengumuman.view');
     
             //CRUD Modul
         

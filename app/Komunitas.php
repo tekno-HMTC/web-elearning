@@ -21,9 +21,9 @@ class Komunitas extends Model
      * 
      */
 
-    public function pengunguman()
+    public function pengumuman()
     {
-        return $this->hasMany('App\Pengunguman');
+        return $this->hasMany('App\Pengumuman');
     }
 
     /**

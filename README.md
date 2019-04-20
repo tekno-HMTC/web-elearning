@@ -42,7 +42,7 @@ Menggunakan wysiwyg
 
 - Komunitas  
 CRUD Komunitas  
-~~CRUD Pengunguman~~
+~~CRUD Pengumuman~~
 
 - User  
     * User biasa  

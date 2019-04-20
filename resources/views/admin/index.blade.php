@@ -115,31 +115,31 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Pengunguman</div>
+                <div class="card-header">Pengumuman</div>
                 <div class="card-body">
-                    <button class="btn btn-primary" onclick="createPengunguman()">Buat Pengunguman</button>
-                    @if ($pengunguman_komunitas != NULL)
+                    <button class="btn btn-primary" onclick="createPengumuman()">Buat Pengumuman</button>
+                    @if ($pengumuman_komunitas != NULL)
                         <table class="table table-hover table-inverse table-responsive">
                             <thead class="thead-inverse">
                                 <tr>
-                                    <th>Pengunguman</th>
+                                    <th>Pengumuman</th>
                                     <th>Tanggal Tampil</th>
                                     <th>Tanggal Selesai</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($pengunguman_komunitas as $pengunguman)
+                                    @foreach ($pengumuman_komunitas as $pengumuman)
                                         <tr>
-                                            <td scope="row">{{$pengunguman->nama}}</td>
-                                            <td>{{$pengunguman->tgl_tampil}}</td>
-                                            <td>{{$pengunguman->tgl_selesai}}</td>
+                                            <td scope="row">{{$pengumuman->nama}}</td>
+                                            <td>{{$pengumuman->tgl_tampil}}</td>
+                                            <td>{{$pengumuman->tgl_selesai}}</td>
                                             <td>
-                                                    <button class="btn btn-info" onclick="updatePengunguman({{$pengunguman->id}})">View</button>
-                                                    <button class="btn btn-info" type="submit" form="delete_pengunguman">Hapus</button>
-                                                    <form action="{{url()->current()}}/pengunguman/delete" method="post" id="delete_pengunguman" hidden>
+                                                    <button class="btn btn-info" onclick="updatePengumuman({{$pengumuman->id}})">View</button>
+                                                    <button class="btn btn-info" type="submit" form="delete_pengumuman">Hapus</button>
+                                                    <form action="{{url()->current()}}/pengumuman/delete" method="post" id="delete_pengumuman" hidden>
                                                         @csrf
-                                                        <input type="text" name="id" value="{{$pengunguman->id}}" hidden>
+                                                        <input type="text" name="id" value="{{$pengumuman->id}}" hidden>
                                                     </form>
                                                 </td>
                                         </tr>
@@ -147,7 +147,7 @@
                                     </tbody>
                             </table>
                     @else
-                        Komunitas ini tidak memiliki pengunguman
+                        Komunitas ini tidak memiliki pengumuman
                     @endif
                 </div>
             </div>
@@ -156,23 +156,23 @@
 </div>
       
 <!-- Modal -->
-<div class="modal fade" id="create_pengunguman" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="create_pengumuman" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Create Pengunguman</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Create Pengumuman</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-            <form action="{{url()->current()}}/pengunguman/create" method="post" id="create_form">
+            <form action="{{url()->current()}}/pengumuman/create" method="post" id="create_form">
                 @csrf
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nama Pengunguman" name="nama" id="nama" required>
+                    <input type="text" class="form-control" placeholder="Nama Pengumuman" name="nama" id="nama" required>
                 </div>
                 <div class="input-group">
-                    <textarea class="form-control" placeholder="Konten Pengunguman" name="konten" id="konten" required></textarea>
+                    <textarea class="form-control" placeholder="Konten Pengumuman" name="konten" id="konten" required></textarea>
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -196,25 +196,25 @@
     </div>
 </div>
 
-<div class="modal fade" id="update_pengunguman" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="update_pengumuman" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Pengunguman</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Edit Pengumuman</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-            <form action="{{url()->current()}}/pengunguman/edit" method="post" id="edit_form">
+            <form action="{{url()->current()}}/pengumuman/edit" method="post" id="edit_form">
                 @method('PATCH')
                 @csrf
                 <input type="text" hidden name="id_pen" id="id_pen">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nama Pengunguman" name="nama" id="nama_new" required>
+                    <input type="text" class="form-control" placeholder="Nama Pengumuman" name="nama" id="nama_new" required>
                 </div>
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Konten Pengunguman" name="konten" id="konten_new" required>
+                    <input type="text" class="form-control" placeholder="Konten Pengumuman" name="konten" id="konten_new" required>
                 </div>
                 <div class="input-group">
                     <input type="datetime" class="form-control" placeholder="Tanggal Tampil" name="tgl_tampil" id="tgl_tampil_new" required>
@@ -233,13 +233,13 @@
 </div>
 
 <script>
-    function createPengunguman() {
-        $('#create_pengunguman').modal('show');
+    function createPengumuman() {
+        $('#create_pengumuman').modal('show');
     }
 
-    function updatePengunguman($id) {
+    function updatePengumuman($id) {
         $.ajax({
-            url: "{{url()->current()}}/pengunguman/view/"+$id,
+            url: "{{url()->current()}}/pengumuman/view/"+$id,
             dataType: 'JSON',
             type: 'get',
             success: function (data) {
@@ -250,7 +250,7 @@
                 $('#tgl_selesai_new').val(data['tgl_selesai']);
             }
         })
-        $('#update_pengunguman').modal('show');
+        $('#update_pengumuman').modal('show');
     }
 
 </script>
