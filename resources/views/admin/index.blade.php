@@ -12,12 +12,12 @@
 
     @if(count( $errors ) > 0)
         @foreach ($errors->all() as $error)
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-danger" role="alert">
             {{ $error }}
         </div>
         @endforeach
     @endif
-
+    
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -136,7 +136,7 @@
                                             <td>{{$pengumuman->tgl_selesai}}</td>
                                             <td>
                                                     <button class="btn btn-info" onclick="updatePengumuman({{$pengumuman->id}})">View</button>
-                                                    <button class="btn btn-info" type="submit" form="delete_pengumuman">Hapus</button>
+                                                    <button class="btn btn-danger" type="submit" form="delete_pengumuman">Hapus</button>
                                                     <form action="{{url()->current()}}/pengumuman/delete" method="post" id="delete_pengumuman" hidden>
                                                         @csrf
                                                         <input type="text" name="id" value="{{$pengumuman->id}}" hidden>
@@ -217,10 +217,10 @@
                     <input type="text" class="form-control" placeholder="Konten Pengumuman" name="konten" id="konten_new" required>
                 </div>
                 <div class="input-group">
-                    <input type="datetime" class="form-control" placeholder="Tanggal Tampil" name="tgl_tampil" id="tgl_tampil_new" required>
+                    <input type="date" class="form-control" placeholder="Tanggal Tampil" name="tgl_tampil" id="tgl_tampil_new" required>
                 </div>
                 <div class="input-group">
-                    <input type="datetime" class="form-control" placeholder="Tanggal Selesai" name="tgl_selesai" id="tgl_selesai_new" required>
+                    <input type="date" class="form-control" placeholder="Tanggal Selesai" name="tgl_selesai" id="tgl_selesai_new" required>
                 </div>
             </form>
         </div>

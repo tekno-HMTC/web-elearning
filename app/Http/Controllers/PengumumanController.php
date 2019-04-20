@@ -29,7 +29,7 @@ class PengumumanController extends Controller
         $pengumuman->tgl_selesai = request('tgl_selesai');
         $pengumuman->save();
 
-        return redirect()->back()->with('success','pengumumanberhasil diupdate!');
+        return redirect()->back()->with('success','Pengumuman berhasil diupdate!');
     }
 
     public function create(Request $request, $kmt_id){
@@ -48,11 +48,11 @@ class PengumumanController extends Controller
         $pengumuman->komunitas_id = $kmt_id;
         $pengumuman->save();
 
-        return redirect()->back()->with('success','pengumumanberhasil dibuat!');
+        return redirect()->back()->with('success','Pengumuman berhasil dibuat!');
     }
 
     public function delete(Request $request, $kmt_id){
         $pengumuman= Pengumuman::find(request('id'))->delete();
-        return redirect()->back()->with('success','pengumumanberhasil dihapus!');
+        return redirect()->back()->with('success','Pengumuman berhasil dihapus!');
     }
 }
