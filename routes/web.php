@@ -18,8 +18,30 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::group(['middleware' => ['admin']], function () {
-    Route::get('/admin/{kmt_id}', function ($id) {
+
+Route::group(['middleware' => ['auth']], function () {
+    
+    Route::get('/request/{kmt_id}','KomunitasController@requestUser')->name('komunitas.request');
+
+    //routing untuk admin
+    Route::group(['middleware' => ['admin']], function () {
+        //Dashboard
+        Route::get('/admin/{kmt_id}', 'KomunitasController@index')->name('admin.index');
         
+        Route::group(['prefix' => '/admin/{kmt_id}'], function () {
+            //CRUD Pengunguman
+            Route::post('/pengunguman/delete', 'PengungumanController@delete')->name('pengunguman.delete');
+            Route::post('/pengunguman/create', 'PengungumanController@create')->name('pengunguman.create');
+            Route::patch('/pengunguman/edit', 'PengungumanController@edit')->name('pengunguman.edit');
+            Route::get('/pengunguman/view/{id}', 'PengungumanController@view')->name('pengunguman.view');
+    
+            //CRUD Modul
+        
+            //CRUD User
+            Route::post('/user/accept','KomunitasController@acceptUser')->name('komunitas.accept');
+            Route::post('/user/remove','KomunitasController@removeUser')->name('komunitas.remove');
+        });
+    
     });
 });
+

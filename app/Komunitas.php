@@ -45,6 +45,6 @@ class Komunitas extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User')->withTimestamps()->withPivot('status_admin');
+        return $this->belongsToMany('App\User')->withTimestamps()->withPivot('status');
     }
 }

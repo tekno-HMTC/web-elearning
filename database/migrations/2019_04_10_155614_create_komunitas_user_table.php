@@ -16,7 +16,7 @@ class CreateKomunitasUserTable extends Migration
         Schema::create('komunitas_user', function (Blueprint $table) {
             $table->integer('user_id');
             $table->integer('komunitas_id');
-            $table->integer('status_admin');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

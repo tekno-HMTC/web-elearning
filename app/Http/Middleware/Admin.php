@@ -18,8 +18,8 @@ class Admin
     {
         if (Auth::user()) {
             $get_arguments = $request->route()->parameters();
-            $is_admin = Auth::user()->komunitas->where('id',$get_arguments[0])->pivot->status_admin;
-            if ($is_admin) {
+            $is_admin = Auth::user()->komunitas->where('id',$get_arguments["kmt_id"])->first()->pivot->status;
+            if ($is_admin == 2) {
                 return $next($request);
             }
         }
