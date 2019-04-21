@@ -148,3 +148,5 @@ $user->allow('nama-ability');
 $user->allow('nama-ability', $model);
 ```
 
+**Catatan**: Pastikan assign ability ke user sesuai dengan role.
+
