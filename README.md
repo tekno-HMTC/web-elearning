@@ -1,5 +1,11 @@
 # Web Elearning Tekno
 
+## Table of Contents
+
+[TOC]
+
+
+
 ## Cara Install
 1. Clone repo
 2. Jalankan composer install
@@ -26,6 +32,7 @@ Ada sedikit perbedaan nama tabel/attribut, akan yang diikuti yang ada pada migra
 Lihat Model dan Controller  
 Lihat Routingan  
 Google
+
 ***
 ## To Do List
  - Untuk siraj
@@ -45,12 +52,10 @@ CRUD Pengunguman
     * User biasa  
     Bisa pilih komunitas  
     Bisa daftar
-
-    * Admin komunitas  
+* Admin komunitas  
     Bisa menerima request masuk komunitas  
-
-    * Ganen  
-    Bisa assign admin
+    * Admin  
+Bisa assign admin
 
 ## Sitemap
 
@@ -89,3 +94,57 @@ CRUD Pengunguman
     - `/admin/{kmt_id}`
 
       CRUD komunitas terkait (modul dan member komunitas).
+
+## Role dan Ability untuk User
+
+Implementasi role dan ability menggunakan [Bouncer](https://github.com/JosephSilber/bouncer).
+
+### Role
+
+Role yang tersedia:
+
+- `'admin'`: Admin. Mengatur seluruh web.
+- `'admin-komunitas'`: Admin komunitas. Mengatur keseluruhan dari sebuah komunitas.
+- `'user'`: User biasa.
+
+### Ability
+
+Untuk mengecek apakah sebuah user memiliki ability di bawah, gunakan `$user->can('nama-ability')`.
+
+Ability yang tersedia:
+
+- `'crud-users'`: Membuat, mengedit, dan menghapus user. Dimiliki oleh role: `'admin'`.
+- `'crud-admins'`: Menambahkan atau menghapus role `'admin'` dari sebuah user. Dimiliki oleh role: `'admin'`.
+- `'crud-admin-komunitas'`: Mengangkat atau menurunkan admin komunitas. Dimiliki oleh role: `'admin'`.
+- `'crud-komunitas'`: Membuat, mengedit, menghapus komunitas. Dimiliki oleh role: `'admin'`.
+- `'crud-modul'`: Membuat, mengedit, menghapus modul dari sebuah komunitas. Dimiliki oleh `'admin-komunitas'` pada model `$komunitas` tertentu.
+- `'crud-member'`: Bisa menambahkan, menghapus member dari komunitas. Dimiliki oleh `'admin-komunitas'` pada model `$komunitas` tertentu.
+
+### Implementasi
+
+Untuk mengecek role:
+
+```php
+$user->isA('nama-role'); //return boolean
+```
+
+Untuk mengecek ability:
+
+```php
+$user->can('nama-ability'); //return boolean
+$user->can('nama-ability', $model); //return boolean
+```
+
+Untuk assign role:
+
+```php
+$user->assign('nama-role');
+```
+
+Untuk assign ability:
+
+```php
+$user->allow('nama-ability');
+$user->allow('nama-ability', $model);
+```
+
