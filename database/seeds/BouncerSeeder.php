@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Silber\Bouncer\Bouncer;
-use Illuminate\Foundation\Auth\User;
+use Silber\Bouncer\BouncerFacade as Bouncer;
+use App\User;
 
-class BouncerSeeder extends Bouncer
+class BouncerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -29,11 +29,11 @@ class BouncerSeeder extends Bouncer
             'name' => 'crud-users',
             'title' => 'Buat, edit, hapus user',
         ]);
-        $bouncer_crud_komunitas = Bouncer::ability()->firstOrCreate([
-            'name' => 'crud-komunitas',
-            'title' => 'Buat, edit, hapus komunitas',
+        $bouncer_crud_user = Bouncer::ability()->firstOrCreate([
+            'name' => 'crud-admin-komunitas',
+            'title' => 'Angkat, turunkan admin komunitas',
         ]);
-        $bouncer_crud_member = Bouncer::ability()->firstOrCreate([
+        $bouncer_crud_komunitas = Bouncer::ability()->firstOrCreate([
             'name' => 'crud-komunitas',
             'title' => 'Buat, edit, hapus komunitas',
         ]);
@@ -41,23 +41,14 @@ class BouncerSeeder extends Bouncer
             'name' => 'crud-modul',
             'title' => 'Buat, edit, hapus modul',
         ]);
-        $bouncer_use_komunitas = Bouncer::ability()->firstOrCreate([
-            'name' => 'use-komunitas',
-            'title' => 'Lihat, berpartisipasi dalam komunitas',
-        ]);
-        $bouncer_use_modul = Bouncer::ability()->firstOrCreate([
-            'name' => 'use-modul',
-            'title' => 'Lihat, berpartisipasi dalam modul',
-        ]);
 
-        Bouncer::allow($bouncer_admin)->to($bouncer_crud_komunitas);
-        Bouncer::allow($bouncer_admin)->to($bouncer_crud_user);
-        Bouncer::allow($bouncer_admin_komunitas)->to($bouncer_crud_modul);
-        Bouncer::allow($bouncer_admin_komunitas)->to($bouncer_crud_member);
-        Bouncer::allow($bouncer_user)->to($bouncer_use_komunitas);
-        Bouncer::allow($bouncer_user)->to($bouncer_use_modul);
+        Bouncer::allow('admin')->to('crud-admins');
+        Bouncer::allow('admin')->to('crud-komunitas');
+        Bouncer::allow('admin')->to('crud-user');
+        Bouncer::allow('admin')->to('crud-admin-komunitas');
 
         $user = User::find(1);
-        $user->assign($bouncer_admin);
+        $user->assign('admin');
+        $user->assign('user');
     }
 }
