@@ -1,5 +1,8 @@
 # Web Elearning Tekno
 
+# PERHATIAN
+Pastikan selalu migrate setelah melakukan pull
+
 ## Cara Install
 1. Clone repo
 2. Jalankan composer install
@@ -39,15 +42,15 @@ Menggunakan wysiwyg
 
 - Komunitas  
 CRUD Komunitas  
-CRUD Pengunguman
+~~CRUD Pengumuman~~
 
 - User  
     * User biasa  
-    Bisa pilih komunitas  
+    ~~Bisa pilih komunitas~~   
     Bisa daftar
 
-    * Admin komunitas  
-    Bisa menerima request masuk komunitas  
+    * ~~Admin komunitas~~  
+    ~~Bisa menerima request masuk komunitas~~
 
     * Ganen  
     Bisa assign admin
