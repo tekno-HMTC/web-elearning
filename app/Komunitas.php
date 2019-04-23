@@ -21,9 +21,9 @@ class Komunitas extends Model
      * 
      */
 
-    public function pengunguman()
+    public function pengumuman()
     {
-        return $this->hasMany('App\Pengunguman');
+        return $this->hasMany('App\Pengumuman');
     }
 
     /**
@@ -45,6 +45,6 @@ class Komunitas extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User')->withTimestamps()->withPivot('status_admin');
+        return $this->belongsToMany('App\User')->withTimestamps()->withPivot('status');
     }
 }

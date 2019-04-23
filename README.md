@@ -1,10 +1,7 @@
 # Web Elearning Tekno
 
 ## Table of Contents
-
 [TOC]
-
-
 
 ## Cara Install
 1. Clone repo
@@ -46,16 +43,18 @@ Menggunakan wysiwyg
 
 - Komunitas  
 CRUD Komunitas  
-CRUD Pengunguman
+~~CRUD Pengumuman~~
 
 - User  
     * User biasa  
-    Bisa pilih komunitas  
+    ~~Bisa pilih komunitas~~   
     Bisa daftar
-* Admin komunitas  
-    Bisa menerima request masuk komunitas  
-    * Admin  
-Bisa assign admin
+
+    * ~~Admin komunitas~~  
+    ~~Bisa menerima request masuk komunitas~~
+
+    * Ganen  
+    Bisa assign admin
 
 ## Sitemap
 

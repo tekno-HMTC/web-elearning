@@ -54,6 +54,6 @@ class User extends Authenticatable
 
     public function komunitas()
     {
-        return $this->belongsToMany('App\Komunitas')->withTimestamps()->withPivot('status_admin');
+        return $this->belongsToMany('App\Komunitas')->withTimestamps()->withPivot('status');
     }
 }
