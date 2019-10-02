@@ -1,8 +1,5 @@
 # Web Elearning Tekno
 
-## Table of Contents
-[TOC]
-
 ## Cara Install
 1. Clone repo
 2. Jalankan composer install
@@ -10,7 +7,8 @@
 4. Set nama database dengan user dan password yang benar di .env
 5. php artisan key:generate
 6. php artisan migrate
-***
+
+
 ## Code Convention
 Hal yang harus diperhatikan dalam kodingan, untuk mempermudah pembacaan.
 - Class: PascalCase
@@ -19,30 +17,27 @@ Hal yang harus diperhatikan dalam kodingan, untuk mempermudah pembacaan.
 - diroute jangan ada return langsung passing ke controller dulu
 - pakai use jangan akses langsung pada direktorinya 
 - Buat branch tiap fitur yang dikerjakan, jangan kerjakan fitur di branch master
-***
+
+
 ## Struktur DB
 ![alt](cdm_db.PNG)
 
 Ada sedikit perbedaan nama tabel/attribut, akan yang diikuti yang ada pada migration.
-***
+
+
 ## Hal yang harus dilakukan jika tidak mengerti
 Lihat Model dan Controller  
 Lihat Routingan  
 Google
 
-***
-## To Do List
- - Untuk siraj
-
-Buat middleware untuk verifikasi admin
 
 ### Fitur fitur
 - Modul  
 CRUD Modul  
-Menggunakan wysiwyg
+Menggunakan wysiwyg (Work-in-progress: Ganen)
 
 - Komunitas  
-CRUD Komunitas  
+CRUD Komunitas (Work-in-progress: Ganen)
 ~~CRUD Pengumuman~~
 
 - User  
@@ -53,7 +48,7 @@ CRUD Komunitas
     * ~~Admin komunitas~~  
     ~~Bisa menerima request masuk komunitas~~
 
-    * Ganen  
+    * Tekno  
     Bisa assign admin
 
 ## Sitemap
@@ -147,5 +142,5 @@ $user->allow('nama-ability');
 $user->allow('nama-ability', $model);
 ```
 
-**Catatan**: Pastikan assign ability ke user sesuai dengan role.
+**Catatan**: Pastikan assign ability ke user sesuai dengan role. Take over by Ganen for now.
 
